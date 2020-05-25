@@ -8,7 +8,7 @@ class Solution:
         while cur<len(arr):
             x=q.popleft()
             arr[cur]=x
-            if x==0 & cur!=len(arr)-1:
+            if x==0 and cur!=len(arr)-1:
                 arr[cur+1]=x
                 cur=cur+1
             cur=cur+1
