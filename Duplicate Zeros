@@ -1,10 +1,15 @@
+from collections import deque
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:
-        j=len(arr)
-        for i in range(j-1,-1,-1):
-            if arr[i]==0 and i!=j-1:
-                arr.insert(i+1,0)
-                arr.pop(-1)
-        """
-        Do not return anything, modify arr in-place instead.
-        """
+        q=deque()                                        
+        for i in arr:
+            q.append(i)
+        cur=0
+        while cur<len(arr):
+            x=q.popleft()
+            arr[cur]=x
+            if x==0 & cur!=len(arr)-1:
+                arr[cur+1]=x
+                cur=cur+1
+            cur=cur+1
+            
